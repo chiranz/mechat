@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Text(
-          'Send text to your closed ones.',
+          'Send text',
         ),
       ),
     );
