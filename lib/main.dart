@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mechat/pages/ConversationPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'MeChat',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,16 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'Send text',
-        ),
-      ),
-    );
+    return ConversationPage();
   }
 }
