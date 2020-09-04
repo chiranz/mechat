@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mechat/config/Assets.dart';
 import 'package:mechat/config/Palette.dart';
 
 class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -35,9 +36,10 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                             Expanded(
                               flex: 2,
                               child: Center(
-                                child: Icon(
-                                  Icons.attach_file,
+                                child: IconButton(
+                                  icon: Icon(Icons.attach_file),
                                   color: Palette.secondaryColor,
+                                  onPressed: () {},
                                 ),
                               ),
                             ),
@@ -99,9 +101,7 @@ class ChatAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: Center(
                     child: CircleAvatar(
                       radius: (80 - width * 0.06) / 2,
-                      backgroundImage: Image.network("""
-https://avatars1.githubusercontent.com/u/27726562?s=400&u=f044cb39f827ad6160a40bcd8de3dfd6e29d2ce0&v=4h""")
-                          .image,
+                      backgroundImage: Image.asset(Assets.user).image,
                     ),
                   ),
                 ),
