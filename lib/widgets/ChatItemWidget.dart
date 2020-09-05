@@ -42,7 +42,7 @@ class ChatItemWidget extends StatelessWidget {
                         fontSize: 12,
                         fontStyle: FontStyle.normal),
                   ),
-                  margin: EdgeInsets.only(left: 5.0, top: 5.0, bottom: 5.0),
+                  margin: EdgeInsets.only(right: 10.0, top: 5.0, bottom: 5.0),
                 )
               ],
             )
@@ -52,6 +52,7 @@ class ChatItemWidget extends StatelessWidget {
     } else {
       return Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -66,7 +67,7 @@ class ChatItemWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Palette.otherMessageBackgroundColor,
                       borderRadius: BorderRadius.circular(8)),
-                  margin: EdgeInsets.only(left: 10),
+                  margin: EdgeInsets.only(left: 5),
                 ),
               ],
             ),

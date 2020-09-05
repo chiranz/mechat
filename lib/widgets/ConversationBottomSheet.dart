@@ -19,16 +19,32 @@ class _ConversationBottomSheetState extends State<ConversationBottomSheet> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: ListView(
+          shrinkWrap: true,
+          physics: ClampingScrollPhysics(),
           children: [
-            NavigationPillWidget(),
-            Center(
-              child: Text(
-                "Messages",
-                style: Styles.textHeading,
+            GestureDetector(
+              child: ListView(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                children: [
+                  NavigationPillWidget(),
+                  Center(
+                    child: Text(
+                      "Messages",
+                      style: Styles.textHeading,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
               ),
-            ),
-            SizedBox(
-              height: 20,
+              onVerticalDragEnd: (details) {
+                print("Dragged down");
+                if (details.primaryVelocity > 50) {
+                  Navigator.pop(context);
+                }
+              },
             ),
             ListView.separated(
                 shrinkWrap: true,

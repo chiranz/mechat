@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mechat/main.dart';
+import 'package:mechat/widgets/ChatListWidget.dart';
 
 void main() {
+  MaterialApp app = MaterialApp(
+    home: Scaffold(
+      body: Column(
+        children: [ChatListWidget()],
+      ),
+    ),
+  );
   testWidgets('ChatListWidget UI Test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MeChat());
+    await tester.pumpWidget(app);
     expect(find.byType(ListView), findsOneWidget);
   });
 }
