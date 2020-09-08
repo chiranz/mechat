@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mechat/widgets/ConversationPageSlide.dart';
+import 'package:mechat/pages/RegisterPage.dart';
 
 void main() {
   runApp(MeChat());
@@ -15,7 +15,7 @@ class MeChat extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ConversationPageSlide(),
+      home: RegisterPage(),
     );
   }
 }
