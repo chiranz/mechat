@@ -27,7 +27,7 @@ class _UserDetailsPageState extends State<UserDetailsPage>
   void initState() {
     WidgetsBinding.instance.addObserver(this);
     usernameFieldAnimationController =
-        AnimationController(vsync: this, duration: Duration(microseconds: 300));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     profilePicHeightAnimation =
         Tween(begin: 100.0, end: 0.0).animate(usernameFieldAnimationController)
           ..addListener(() {

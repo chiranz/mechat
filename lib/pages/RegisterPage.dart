@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mechat/blocs/authentication/AuthenticationBloc.dart';
+import 'package:mechat/blocs/authentication/Bloc.dart';
 import 'package:mechat/config/Palette.dart';
 import 'package:mechat/config/Transitions.dart';
 import 'package:mechat/pages/GoogleSignInPage.dart';
@@ -20,7 +23,8 @@ class _RegisterPageState extends State<RegisterPage>
   // Fields related to animation of the gradient.
   Alignment begin = Alignment.center;
   Alignment end = Alignment.bottomRight;
-  // Fields related to animating the layout and pushing widgets up when the focus is on the username field
+  // Bloc
+  AuthenticationBloc authenticationBloc;
 
   @override
   void initState() {
@@ -30,6 +34,13 @@ class _RegisterPageState extends State<RegisterPage>
         begin = Alignment(pageController.page, pageController.page);
         end = Alignment(1 - pageController.page, 1 - pageController.page);
       });
+    });
+    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+    authenticationBloc.listen((state) {
+      print("Current state $state");
+      if (state is Authenticated) {
+        updatePageState(1);
+      }
     });
 
     super.initState();
@@ -106,14 +117,14 @@ class _RegisterPageState extends State<RegisterPage>
     );
   }
 
-  Future<bool> onWillPop() {
+  Future<bool> onWillPop() async {
     if (currentPage == 1) {
       pageController.previousPage(
           duration: Duration(microseconds: 300), curve: Curves.easeOut);
 
-      return Future.value(false);
+      return false;
     }
-    return Future.value(true);
+    return true;
   }
 
   updatePageState(index) {
